@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "../../Tutorials/React/scrimba/forms-container-components"
+		},
+		{
+			"path": "../../Tutorials/React/scrimba/forms"
+		},
+		{
+			"path": "../../../Handbooks"
+		},
+		{
+			"path": "../../Tutorials/React/scrimba/meme-generator"
+		},
+		{
+			"path": "../../Tutorials/React/scrimba/api-calls"
+		},
+		{
+			"path": "../../Tutorials/React/scrimba/use-state"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}

@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import * as serviceWorker from './serviceWorker';
+import TvApp from './TvApp';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+
+    <TvApp />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
