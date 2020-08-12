@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
 import * as serviceWorker from './serviceWorker';
+
 import TvApp from './TvApp';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 
 ReactDOM.render(
