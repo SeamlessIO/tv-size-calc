@@ -1,8 +1,3 @@
-## TODO
+# TV-size-app
 
-* Use Radio in a form instead of regular buttons with state
-* Add position aware effect on buttons https://codepen.io/kjbrum/pen/wBBLXx 
-
-## Feature branches
-
-1. Using react-router-dom with switch. 
+A simple web app to calculuate the FOV (field of view) when looking at TV of size X at a distance Y. 

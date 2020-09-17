@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, {  } from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import LinkButton from './components/LinkButton'
 
 import DistCalc from "./components/DistCalc";
 import TvSizeCalc from "./components/TvSizeCalc";
@@ -14,17 +14,17 @@ const routes = [
   {
     path: "/TvSizeCalc",
     exact: true,
-    sidebar: () => <div>TV Size</div>,
+    sidebar: () => <h3>Calculate TV Size</h3>,
     main: () => <TvSizeCalc />
   },
   {
     path: "/TvFov",
-    sidebar: () => <div>TV FOV</div>,
+    sidebar: () => <h3>Calculate TV Field of View</h3>,
     main: () => <FovCalc />
   },
   {
     path: "/DistToTV",
-    sidebar: () => <div>Distance to TV</div>,
+    sidebar: () => <h3>Calculate Distance to TV</h3>,
     main: () => <DistCalc />
   }
 ];
@@ -32,26 +32,17 @@ const routes = [
 export default function TvApp() {
   return (
     <Router>
-      <div style={{ display: "flex" }}>
-        <div
-          style={{
-            padding: "10px",
-            width: "40%",
-            background: "#f0f0f0"
-          }}
-        >
-          <ul style={{ listStyleType: "none", padding: 0 }}>
-            <li>
-              <Link to="/TvSizeCalc">Size</Link>
-            </li>
-            <li>
-            <Link to="/TvFov">TV FOV</Link>
-            </li>
-            <li>
-            <Link to="/DistToTV">Distance to TV</Link>
-            </li>
-          </ul>
-
+      <div className="App">
+        <div>
+        <h2>What to Calculate?</h2>
+      
+            <LinkButton to="/TvSizeCalc">TV Size</LinkButton>
+      
+            <LinkButton to="/TvFov">TV Field of View</LinkButton>
+     
+            <LinkButton to="/DistToTV">Distance to TV</LinkButton>
+       
+<hr />
           <Switch>
             {routes.map((route, index) => (
               // You can render a <Route> in as many places
@@ -71,7 +62,7 @@ export default function TvApp() {
           </Switch>
         </div>
 
-        <div style={{ flex: 1, padding: "10px" }}>
+        <div>
           <Switch>
             {routes.map((route, index) => (
               // Render more <Route>s with the same paths as
@@ -86,6 +77,7 @@ export default function TvApp() {
           </Switch>
         </div>
       </div>
+      <a href ="https://github.com/akjems/tv-size-calc"> Github </a>
     </Router>
   );
 }
