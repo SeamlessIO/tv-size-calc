@@ -10,6 +10,8 @@ import DistCalc from "./components/DistCalc";
 import TvSizeCalc from "./components/TvSizeCalc";
 import FovCalc from "./components/FovCalc";
 
+import GitHub_Logo from "./images/GitHub_Logo.jpg"
+
 const routes = [
   {
     path: "/TvSizeCalc",
@@ -77,7 +79,7 @@ export default function TvApp() {
           </Switch>
         </div>
       </div>
-      <a href ="https://github.com/akjems/tv-size-calc"> Github </a>
+      <a href ="https://github.com/akjems/tv-size-calc"> <img src={GitHub_Logo}></img></a>
     </Router>
   );
 }
