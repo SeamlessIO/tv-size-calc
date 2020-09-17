@@ -26,8 +26,7 @@ tvSizeCalc(){
   render() {
     return (
     <>
-      <h3>Calculate TV Size</h3>
-		
+
       Input distance to screen (meters): <br />
       <input 
         name ="distToScreen" 

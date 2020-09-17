@@ -28,7 +28,7 @@ fovCalc(){
     return (
     <>
     <form>
-    <h3>Calculate field of view</h3>
+
 		Input TV Size (diagonal inches): <br />
 		<input 
 			name ="tvSize" 
