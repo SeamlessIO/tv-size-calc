@@ -28,7 +28,7 @@ distCalc(){
     return (
     <>
     
-    <h3>Calculate distance to TV</h3>
+ 
 		Input TV size (diagonal inches): <br />
 		<input 
 			name ="tvSize" 

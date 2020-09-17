@@ -1,86 +1,85 @@
-import React, { Component } from "react";
+import React, {  } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import LinkButton from './components/LinkButton'
+
 import DistCalc from "./components/DistCalc";
 import TvSizeCalc from "./components/TvSizeCalc";
 import FovCalc from "./components/FovCalc";
 
+import GitHub_Logo from "./images/GitHub_Logo.jpg"
 
-
-class TvApp extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      name: "React",
-      showHideTvSizeCalc: true,
-      showHideFovCalc: false,
-      showHideDistCalc: false
-    };
-    this.hideComponent = this.hideComponent.bind(this);
+const routes = [
+  {
+    path: "/TvSizeCalc",
+    exact: true,
+    sidebar: () => <h3>Calculate TV Size</h3>,
+    main: () => <TvSizeCalc />
+  },
+  {
+    path: "/TvFov",
+    sidebar: () => <h3>Calculate TV Field of View</h3>,
+    main: () => <FovCalc />
+  },
+  {
+    path: "/DistToTV",
+    sidebar: () => <h3>Calculate Distance to TV</h3>,
+    main: () => <DistCalc />
   }
+];
 
-  hideComponent(name) {
-    console.log(name);
-    switch (name) {
-      case "showHideTvSizeCalc":
-        this.setState(
-          { 
-            showHideTvSizeCalc: true,
-            showHideFovCalc: false,
-            showHideDistCalc: false
-         });
-        break;
-      case "showHideFovCalc":
-        this.setState(
-          {
-             showHideFovCalc: true,
-             showHideTvSizeCalc: false,
-            showHideDistCalc: false
-           }
-           );
-        break;
-      case "showHideDistCalc":
-        this.setState(
-          { 
-            showHideDistCalc: true,
-            showHideFovCalc: false,
-            showHideTvSizeCalc: false
-           }
-           );
-        break;
-      default:
-        console.log("Nothing")
-      
-    }
-  }
-
-  render() {
-    const { showHideTvSizeCalc, showHideFovCalc, showHideDistCalc } = this.state;
-    return (
-      <>
-      
+export default function TvApp() {
+  return (
+    <Router>
       <div className="App">
-
-   
+        <div>
         <h2>What to Calculate?</h2>
-          <button onClick={() => this.hideComponent("showHideTvSizeCalc")} type="button" class="btn btn-primary m-2">
-            TV Size
-          </button>
-          <button onClick={() => this.hideComponent("showHideFovCalc")} type="button" class="btn btn-primary m-2">
-            TV Field of View
-          </button>
-          <button onClick={() => this.hideComponent("showHideDistCalc")} type="button" class="btn btn-primary m-2">
-            Distance to TV
-          </button>
-         
-     <hr />
-        {showHideTvSizeCalc && <TvSizeCalc />}
-        {showHideFovCalc && <FovCalc />}
-        {showHideDistCalc && <DistCalc />}
-        <hr />
-      </div>
-      </>
-    );
-  }
-}
+      
+            <LinkButton to="/TvSizeCalc">TV Size</LinkButton>
+      
+            <LinkButton to="/TvFov">TV Field of View</LinkButton>
+     
+            <LinkButton to="/DistToTV">Distance to TV</LinkButton>
+       
+<hr />
+          <Switch>
+            {routes.map((route, index) => (
+              // You can render a <Route> in as many places
+              // as you want in your app. It will render along
+              // with any other <Route>s that also match the URL.
+              // So, a sidebar or breadcrumbs or anything else
+              // that requires you to render multiple things
+              // in multiple places at the same URL is nothing
+              // more than multiple <Route>s.
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                children={<route.sidebar />}
+              />
+            ))}
+          </Switch>
+        </div>
 
-export default TvApp
+        <div>
+          <Switch>
+            {routes.map((route, index) => (
+              // Render more <Route>s with the same paths as
+              // above, but different components this time.
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                children={<route.main />}
+              />
+            ))}
+          </Switch>
+        </div>
+      </div>
+      <a href ="https://github.com/akjems/tv-size-calc"> <img src={GitHub_Logo}></img></a>
+    </Router>
+  );
+}
